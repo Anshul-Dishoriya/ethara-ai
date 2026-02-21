@@ -93,6 +93,8 @@ DATABASES = {
 # Read allowed origins from env var (comma-separated) so Vercel/Render URLs
 # can be configured without code changes. Falls back to localhost for local dev.
 _cors_env = os.getenv("CORS_ALLOWED_ORIGINS", "")
+
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
