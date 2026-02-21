@@ -20,7 +20,6 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-
 SECRET_KEY = 'django-insecure-!@vlm)!_lgeqcnogh5hko+(pn1c-zq^sb*f^#^iwk66(ay=ye('
 
 DEBUG = False
@@ -91,10 +90,16 @@ DATABASES = {
 }
 
 # CORS
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-]
+# Read allowed origins from env var (comma-separated) so Vercel/Render URLs
+# can be configured without code changes. Falls back to localhost for local dev.
+_cors_env = os.getenv("CORS_ALLOWED_ORIGINS", "")
+CORS_ALLOWED_ORIGINS = (
+    [o.strip() for o in _cors_env.split(",") if o.strip()]
+    or [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ]
+)
 
 # REST Framework
 REST_FRAMEWORK = {
