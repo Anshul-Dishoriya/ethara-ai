@@ -1,0 +1,42 @@
+.error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.error-state-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.error-state-title {
+    color: #dc2626;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+}
+
+.error-state-message {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0 0 1rem;
+}
+
+.error-state-btn {
+    padding: 0.5rem 1.25rem;
+    background: #6366f1;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.error-state-btn:hover {
+    background: #4f46e5;
+}
