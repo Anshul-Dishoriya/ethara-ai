@@ -48,8 +48,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'corsheaders.middleware.CorsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,8 +96,12 @@ _cors_env = os.getenv("CORS_ALLOWED_ORIGINS", "")
 CORS_ALLOWED_ORIGINS = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
-        "https://ethara-ai-psi.vercel.app/"
+        "https://ethara-ai-psi.vercel.app"
     ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://ethara-ai-psi.vercel.app"
+]
 
 # REST Framework
 REST_FRAMEWORK = {
