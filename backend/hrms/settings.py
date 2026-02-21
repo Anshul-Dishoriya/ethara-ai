@@ -93,13 +93,11 @@ DATABASES = {
 # Read allowed origins from env var (comma-separated) so Vercel/Render URLs
 # can be configured without code changes. Falls back to localhost for local dev.
 _cors_env = os.getenv("CORS_ALLOWED_ORIGINS", "")
-CORS_ALLOWED_ORIGINS = (
-    [o.strip() for o in _cors_env.split(",") if o.strip()]
-    or [
+CORS_ALLOWED_ORIGINS = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        "https://ethara-ai-psi.vercel.app/"
     ]
-)
 
 # REST Framework
 REST_FRAMEWORK = {
